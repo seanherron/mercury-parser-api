@@ -32,3 +32,10 @@ jobs:
                 --output "type=image,push=true" \
                 --file ./Dockerfile . \
                 --tag wangqiru/mercury-parser-api:latest
+        -
+            name: Notify Awensome-TTRSS repo
+            run: |
+                curl -X POST https://api.github.com/repos/HenryQW/Awesome-TTRSS/dispatches \
+                -H 'Authorization: token ${{ secrets.CI_TOKEN }}' \
+                -H 'Accept: application/vnd.github.everest-preview+json' \
+                --data "{\"event_type\": \"build\"}"
