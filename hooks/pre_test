@@ -1,6 +1,0 @@
-#!/bin/bash
-echo $DOCKER_TAG
-echo "from pre_test"
-if [[ $DOCKER_TAG =~ "arm" ]]; then
-    docker run --rm --privileged multiarch/qemu-user-static:register --reset
-fi
